@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Button from './components/Button'
-import Input from './components/Input'
-import Task from './components/Task'
+import Button from '../components/Button'
+import Input from '../components/Input'
+import Task from '../components/Task'
 
 
 const MainPage = () => {
