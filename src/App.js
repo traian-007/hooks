@@ -1,11 +1,12 @@
-import './App.css';
-import MainPage from './Pages/MainPage';
+import "./App.css";
+import { GlobalProvider } from "./context/contextState";
+import MainPage from "./Pages/MainPage";
 
 function App() {
   return (
-    <div className="App">
+    <GlobalProvider>
       <MainPage />
-    </div>
+    </GlobalProvider>
   );
 }
 

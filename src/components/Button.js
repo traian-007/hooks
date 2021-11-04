@@ -1,11 +1,13 @@
-import React from 'react'
+const Button = ({ addTask, task }) => {
+  return (
+    <button
+      onClick={() => addTask()}
+      style={{ color: "white", background: "green" }}
+      disabled={!task}
+    >
+      Add
+    </button>
+  );
+};
 
-const Button = ({addTask}) => {
-    return (
-        <button onClick={() => addTask()} style={{color: 'white', background: 'green'}}>
-            Add
-        </button>
-    )
-}
-
-export default Button
+export default Button;
