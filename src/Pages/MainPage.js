@@ -29,7 +29,12 @@ const MainPage = () => {
   }
 
   function takeTaskFromInput(task) {
-    setTask(task);
+    let sameTitle = tasks.map((item) => item.text).includes(task);
+    if (!sameTitle) {
+      setTask(task);
+    } else {
+      alert("you have same task");
+    }
   }
 
   return (

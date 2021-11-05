@@ -11,6 +11,7 @@ import { GlobalContext } from "../context/contextState";
 const Task = ({ task, CheckedTask }) => {
   const ref = useRef(null);
   const [checked, setChecked] = useState(false);
+  const [value, setValue] = useState("");
   const { deleteTask } = useContext(GlobalContext);
   const [cross, setCrossed] = useState("");
 
@@ -27,6 +28,9 @@ const Task = ({ task, CheckedTask }) => {
   useEffect(() => {
     setCrossed(() => lineThrough(checked));
   }, [lineThrough]);
+  useEffect(() => {
+    setValue(task.text);
+  }, []);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -47,7 +51,12 @@ const Task = ({ task, CheckedTask }) => {
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <input type="checkbox" checked={checked} onChange={handleChange} />
-        <h1 style={{ paddingLeft: 5, paddingBottom: 10 }}>{task.text}</h1>
+        <input
+          style={{ fontSize: 20, border: "none" }}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        {/* <h1 >{task.text}</h1> */}
       </div>
 
       <img
